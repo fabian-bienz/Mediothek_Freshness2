@@ -11,5 +11,11 @@ public class Mitgliedschaft {
 		endDatum = new Date(endDatum.getTime()+ TimeUnit.DAYS.toMillis(30));
 	}
 	
+	public Date getEndDatum() {
+		return endDatum;
+	}
 	
+	public void renewMitgliedschaft() {
+		endDatum = new Date(endDatum.getTime()+ TimeUnit.DAYS.toMillis(30));
+	}
 }
