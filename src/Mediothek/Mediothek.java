@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Mediothek {
 	
-	private List kunden;
+	private List<Kunde> kunden;
 	private Map<Integer, String> medien;
 	
 	public Mediothek() {
@@ -26,9 +26,8 @@ public class Mediothek {
 		}
 	}
 	
-	
 	public void registerKunde() {
-		Kunde kunde = new Kunde();
+		Kunde kunde = new Kunde("Severin", 1);
 		kunden.add(kunde);
 	}
 	
