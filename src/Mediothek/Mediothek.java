@@ -26,9 +26,28 @@ public class Mediothek {
 		}
 	}
 	
-	public void registerKunde() {
-		Kunde kunde = new Kunde("Severin", 1);
+	public void registerKunde(String name) {
+		// id vergeben 
+		int id = kunden.size() +1;
+		// kunde adden 
+		Kunde kunde = new Kunde(name, id);
 		kunden.add(kunde);
+	}
+
+	public List<Kunde> getKunden() {
+		return kunden;
+	}
+
+	public void setKunden(List<Kunde> kunden) {
+		this.kunden = kunden;
+	}
+
+	public Map<Integer, String> getMedien() {
+		return medien;
+	}
+
+	public void setMedien(Map<Integer, String> medien) {
+		this.medien = medien;
 	}
 	
 	
