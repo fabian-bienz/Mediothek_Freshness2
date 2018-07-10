@@ -8,24 +8,25 @@ import java.util.Map;
 public class Mediothek {
 	
 	private List<Kunde> kunden;
-	private Map<Integer, String> medien;
+	private Map<Integer, String> medienDa; //medien, die sich in der Mediothek befinden 
+	private Map<Integer, String> medienWeg; // medien, die ausgeliehen sind..könnte auch ein attribut sein..
 	
 	public Mediothek() {
 		kunden = new ArrayList<Kunde>();
-		medien = new HashMap<Integer, String>();
+		medienDa = new HashMap<Integer, String>();
 	}
 	
 	public void addMedium(Medien medium) {
-		medien.put(medium.getId(),medium.getTitel());
+		medienDa.put(medium.getId(),medium.getTitel());
 	}
 	
 	public void printMedien() {
-		for(Map.Entry m:medien.entrySet()){
+		for(Map.Entry m:medienDa.entrySet()){
 			System.out.print(m.getKey());
 			System.out.print(": " + m.getValue() + "\n");
 		}
 	}
-	
+	// einen kunden anhand eines namen registrieren 
 	public void registerKunde(String name) {
 		// id vergeben 
 		int id = kunden.size() +1;
@@ -37,18 +38,29 @@ public class Mediothek {
 	public List<Kunde> getKunden() {
 		return kunden;
 	}
+	// einen kunden anhand eines Namen herausfinden
+	public Kunde getKunde(String name) {
+		Kunde dieser = null;
+		for (Kunde kunde: kunden) {
+			if (kunde.getName().equals(name)) {				
+				dieser = kunde;
+			}
+		}
+		return dieser;			
+	}
 
 	public void setKunden(List<Kunde> kunden) {
 		this.kunden = kunden;
 	}
 
 	public Map<Integer, String> getMedien() {
-		return medien;
+		return medienDa;
 	}
 
 	public void setMedien(Map<Integer, String> medien) {
-		this.medien = medien;
+		this.medienDa = medien;
 	}
+	
 	
 	
 	
