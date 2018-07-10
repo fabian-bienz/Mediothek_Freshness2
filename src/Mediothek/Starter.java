@@ -59,6 +59,73 @@ public class Starter {
 			
 		}
 		if (eingabe.equals("mailbox")) {
+			System.out.println("Möchten Sie die Mahnungen sehen? (Eingabe: 'mahnungen')");
+			System.out.println("Möchten Sie die Rechnungen sehen? (Eingabe: 'rechnungen')");
+			System.out.println("Möchten Sie die ausgeliehenen Medien sehen? (Eingabe: 'ausgeliehen')");
+			eingabe = input.nextLine();
+			if (eingabe.equals("mahnungen")) {
+				// instanzierungen machen mir sorgen.. 
+				Mediothek mediothek = new Mediothek();
+				Kunde kunde = mediothek.getKunde(name);
+				Mailbox mail = new Mailbox(kunde);
+				System.out.println(mail.getMahnungen());
+				System.out.println("Möchten Sie eine Mahnung begleichen (Eingabe: Y/N)");
+				eingabe = input.nextLine();
+				if (eingabe.equals("Y")) {
+					System.out.println("Geben Sie die Bezeichnung der Mahnung ein, die Sie bazahlen möchten");
+					eingabe = input.nextLine();
+					System.out.println(mail.returnMahnung(eingabe)+" bezahlen (Eingabe: Y/N)");
+					String eingabe2 = input.nextLine();
+					if (eingabe2.equals("Y")) {
+						mail.bezahleMahnung(mail.returnMahnung(eingabe));
+					}
+				}
+					
+				
+			}
+			if (eingabe.equals("rechnungen")) {
+				// instanzierungen machen mir sorgen.. 
+				Mediothek mediothek = new Mediothek();
+				Kunde kunde = mediothek.getKunde(name);
+				Mailbox mail = new Mailbox(kunde);
+				System.out.println(mail.getRechnungen());
+				System.out.println("Möchten Sie eine Rechnung begleichen (Eingabe: Y/N)");
+				eingabe = input.nextLine();
+				if (eingabe.equals("Y")) {
+					System.out.println("Geben Sie die Bezeichnung der Rechnung ein, die Sie bazahlen möchten");
+					eingabe = input.nextLine();
+					System.out.println(mail.returnRechnung(eingabe)+" bezahlen (Eingabe: Y/N)");
+					String eingabe2 = input.nextLine();
+					if (eingabe2.equals("Y")) {
+						mail.bezahleRechnung(mail.returnRechnung(eingabe));
+					}
+				}
+					
+				
+			}
+			if (eingabe.equals("ausgeliehen")) {
+				// instanzierungen machen mir sorgen.. 
+				Mediothek mediothek = new Mediothek();
+				Kunde kunde = mediothek.getKunde(name);
+				Mailbox mail = new Mailbox(kunde);
+				System.out.println(mail.getAusgeliehen());
+				System.out.println("Möchten Sie eine Medium zurückgeben (Eingabe: Y/N)");
+				eingabe = input.nextLine();
+				if (eingabe.equals("Y")) {
+					System.out.println("Welches Medium möchten Sie zurückgeben? (Eingabe: 'Titel'");
+					eingabe = input.nextLine();
+					Object medium = mediothek.getMediumWeg(eingabe);
+					mail.rückgabe((Medien) medium);
+					// noch aus dem medienWeg removen und in das medienDa adden
+					mediothek.addMediumDa((Medien) medium);
+					mediothek.removeMediumWeg((Medien) medium);
+				}
+				
+			}
+			else {
+				System.out.println("Ungültige eingabe");
+			}
+				
 			
 		}
 		else {

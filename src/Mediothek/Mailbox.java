@@ -14,12 +14,16 @@ public class Mailbox {
 		
 	}
 
-	public Map<String, Integer> getMahnung() {
+	public Map<String, Integer> getMahnungen() {
 		return mahnungen;
 	}
-	// wenn sich eine Zahlung verzögert wird diese funktion aufgerufen..
+	// wenn sich eine Zahlung verzögert wird diese methode aufgerufen..
 	public void addMahnung(String key, int value) {
 		mahnungen.put(key, value);
+	}
+	//wenn etwas bezahlt werden muss wird diese methode aufgerufen
+	public void addRechnung(String key, int value) {
+		rechnungen.put(key, value);
 	}
 
 	public void setMahnungen(Map<String, Integer> mahnungen) {
@@ -47,6 +51,13 @@ public class Mailbox {
 		ausgeliehen.remove(medium);
 	}
 	
+	public void bezahleMahnung(Object mahnung) {
+		mahnungen.remove(mahnung);
+	}
+	
+	public void bezahleRechnung(Object rechnung) {
+		rechnungen.remove(rechnung);
+	}
 	public void setAusgeliehen(List<Medien> ausgeliehen) {
 		this.ausgeliehen = ausgeliehen;
 	}
@@ -57,6 +68,12 @@ public class Mailbox {
 
 	public void setRechnungen(Map<String, Integer> rechnungen) {
 		this.rechnungen = rechnungen;
+	}
+	public Object returnMahnung (String key) {
+		return mahnungen.get(key);
+	}
+	public Object returnRechnung(String key) {
+		return rechnungen.get(key);
 	}
 	
 	
