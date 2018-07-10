@@ -48,6 +48,27 @@ public class Mediothek {
 		}
 		return dieser;			
 	}
+	// ein medium anhand des Titels herausfinden
+	public Object getMediumDa(String name) {
+		Object dieses = null;
+		for (Map.Entry m: medienDa.entrySet()){
+			if (m.getValue().equals(name)) {
+				dieses = m.getValue();
+			}
+			
+		}
+		return dieses;			
+	}
+	// ein medium anhand des Titels herausfinden
+	public Object getMediumWeg(String name) {
+		Object dieses = null;
+		for (Map.Entry m: medienWeg.entrySet()){
+			if (m.getValue().equals(name)) {
+				dieses = m.getValue();
+			}	
+		}
+		return dieses;			
+	}
 
 	public void setKunden(List<Kunde> kunden) {
 		this.kunden = kunden;

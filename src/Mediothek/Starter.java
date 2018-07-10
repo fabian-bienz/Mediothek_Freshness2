@@ -42,6 +42,11 @@ public class Starter {
 			}
 		}
 		if (eingabe.equals("rückgabe")) {
+			// keine ahnung isch gloubs e seich hie 
+			Mediothek mediothek = new Mediothek();
+			Kunde kunde = mediothek.getKunde(name);
+			Mailbox mail = new Mailbox(kunde);
+			
 			
 		}
 		if (eingabe.equals("mailbox")) {
@@ -59,6 +64,8 @@ public class Starter {
 		Mediothek m = new Mediothek();
 		m.registerKunde(name);
 		
+		Kunde kunde = m.getKunde(name);
+		Mailbox mailbox = new Mailbox(kunde);
 		//mailbox:
 		//..
 		
