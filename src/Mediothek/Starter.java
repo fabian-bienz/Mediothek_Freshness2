@@ -42,10 +42,19 @@ public class Starter {
 			}
 		}
 		if (eingabe.equals("rückgabe")) {
-			// keine ahnung isch gloubs e seich hie 
+			// keine ahnung isch gloubs e seich hie (wäge der new Mailbox)
 			Mediothek mediothek = new Mediothek();
 			Kunde kunde = mediothek.getKunde(name);
 			Mailbox mail = new Mailbox(kunde);
+			System.out.println("Welches Medium möchten Sie zurückgeben? (Eingabe: 'Titel'");
+			eingabe = input.nextLine();
+			Object medium = mediothek.getMediumWeg(eingabe);
+			mail.rückgabe((Medien) medium);
+			// noch aus dem medienWeg removen und in das medienDa adden
+			mediothek.addMediumDa((Medien) medium);
+			mediothek.removeMediumWeg((Medien) medium);
+			
+			
 			
 			
 		}

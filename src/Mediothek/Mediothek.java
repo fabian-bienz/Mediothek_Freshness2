@@ -16,8 +16,17 @@ public class Mediothek {
 		medienDa = new HashMap<Integer, String>();
 	}
 	
-	public void addMedium(Medien medium) {
+	public void addMediumDa(Medien medium) {
 		medienDa.put(medium.getId(),medium.getTitel());
+	}
+	public void addMediumWeg(Medien medium) {
+		medienWeg.put(medium.getId(),medium.getTitel());
+	}
+	public void removeMediumDa(Medien medium) {
+		medienDa.remove(medium);
+	}
+	public void removeMediumWeg(Medien medium) {
+		medienWeg.remove(medium);
 	}
 	
 	public void printMedien() {
