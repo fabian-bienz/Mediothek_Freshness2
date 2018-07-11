@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Mailbox {
-	// man könnte auch eine haschmap mit <Date, Integer> machen um das EndDate mitzugeben.. 
+	// man könnte auch eine haschmap mit <Date, Integer> machen um das EndDate mitzugeben.. für mahnungen und rechnungen meine ich 
 	
 	// diese Listen müssten pro kunde existieren.. tun sie das so?
 	private Map<String , Integer> mahnungen; //String für die bezeichnung der Mahnung.. oder so und int für den betrag
@@ -74,7 +74,7 @@ public class Mailbox {
 	public void bezahleRechnung(Object rechnung) {
 		rechnungen.remove(rechnung);
 	}
-	public void setAusgeliehen(List<Medien> ausgeliehen) {
+	public void setAusgeliehen(Map<Medien, Date> ausgeliehen) {
 		this.ausgeliehen = ausgeliehen;
 	}
 
