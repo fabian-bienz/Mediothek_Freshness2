@@ -109,16 +109,23 @@ public class Starter {
 				Kunde kunde = mediothek.getKunde(name);
 				Mailbox mail = new Mailbox(kunde);
 				System.out.println(mail.getAusgeliehen());
-				System.out.println("Möchten Sie eine Medium zurückgeben (Eingabe: Y/N)");
+				System.out.println("Möchten Sie eine Medium zurückgeben? (Eingabe: 'rückgabe')");
+				System.out.println("Möchten Sie ein Medium verlängern? (Eingabe: 'verlängern')");
 				eingabe = input.nextLine();
-				if (eingabe.equals("Y")) {
+				if (eingabe.equals("rückgabe")) {
 					System.out.println("Welches Medium möchten Sie zurückgeben? (Eingabe: 'Titel'");
 					eingabe = input.nextLine();
 					Object medium = mediothek.getMediumWeg(eingabe);
 					mail.rückgabe((Medien) medium);
-					// noch aus dem medienWeg removen und in das medienDa adden
+					// noch aus dem medienWeg removen und in das medienDa adden 
+					// geanu umgekehrt wie bei der ausleihe
 					mediothek.addMediumDa((Medien) medium);
 					mediothek.removeMediumWeg((Medien) medium);
+				}
+				if (eingabe.equals("verlängern")) {
+					System.out.println("Welches Medium möchten Sie verlängern? (Eingabe: 'Titel'");
+					eingabe = input.nextLine();
+					Object medium = mediothek.getMediumWeg(eingabe);
 				}
 				
 			}

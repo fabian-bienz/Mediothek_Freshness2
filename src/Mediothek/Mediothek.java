@@ -21,6 +21,7 @@ public class Mediothek {
 	}
 	public void addMediumWeg(Medien medium) {
 		medienWeg.put(medium.getId(),medium.getTitel());
+		
 	}
 	public void removeMediumDa(Medien medium) {
 		medienDa.remove(medium);
