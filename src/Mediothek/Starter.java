@@ -13,6 +13,10 @@ public class Starter {
 	if (userInput.equals("Y") || userInput.equals("y")) {
 		System.out.println("Geben Sie Ihren Namen an");
 		String name = input.nextLine();
+		Mediothek mediothek = new Mediothek();
+		Kunde kunde = mediothek.getKunde(name);
+		
+		
 		
 		System.out.println("Möchten Sie ein Medium ausleihen? (Eingabe : 'ausleihen')");
 		System.out.println("Möchten Sie ein Medium zurückgeben? (Eingabe : 'rückgabe')");
@@ -26,15 +30,85 @@ public class Starter {
 			System.out.println("Möchten Sie schmöckern und sich die verfügbaren Medien anzeigen lasen? (Eingabe : 'schmöckern') ");
 			eingabe = input.nextLine();
 			if (eingabe.equals("buch")) {
-				
+				System.out.println("Geben sie den Titel ein. Wenn sie alle verfügbaren Bücher anzeigen lassen wollen geben sie 'anzeigen' ein.");
+				eingabe = input.nextLine();
+				if (eingabe.equals("anzeigen")) {
+					mediothek.getMedien();
+					System.out.println("Welches möchten Sie ausleihen? (Eingabe: 'titel')");
+					eingabe = input.nextLine();
+					Object medium = mediothek.getMediumDa(eingabe);
+					mediothek.addMediumWeg((Medien) medium);
+					Mailbox mail = new Mailbox(kunde);
+					mail.addAusgeliehen((Medien) medium);
+					
+				}
+				else {
+					System.out.println("Welches möchten Sie ausleihen? (Eingabe: 'titel')");
+					eingabe = input.nextLine();
+					Object medium = mediothek.getMediumDa(eingabe);
+					mediothek.addMediumWeg((Medien) medium);
+					Mailbox mail = new Mailbox(kunde);
+					mail.addAusgeliehen((Medien) medium);
+					
+				}
 			}
 			if (eingabe.equals("video")) {
+				System.out.println("Geben sie den Titel ein. Wenn sie alle verfügbaren Bücher anzeigen lassen wollen geben sie 'anzeigen' ein.");
+				eingabe = input.nextLine();
+				if (eingabe.equals("anzeigen")) {
+					mediothek.getMedien();
+					System.out.println("Welches möchten Sie ausleihen? (Eingabe: 'titel')");
+					eingabe = input.nextLine();
+					Object medium = mediothek.getMediumDa(eingabe);
+					mediothek.addMediumWeg((Medien) medium);
+					Mailbox mail = new Mailbox(kunde);
+					mail.addAusgeliehen((Medien) medium);
+					
+				}
+				else {
+					System.out.println("Welches möchten Sie ausleihen? (Eingabe: 'titel')");
+					eingabe = input.nextLine();
+					Object medium = mediothek.getMediumDa(eingabe);
+					mediothek.addMediumWeg((Medien) medium);
+					Mailbox mail = new Mailbox(kunde);
+					mail.addAusgeliehen((Medien) medium);
+					
+				}
+				
 				
 			}
 			if (eingabe.equals("cd")) {
+				System.out.println("Geben sie den Titel ein. Wenn sie alle verfügbaren Bücher anzeigen lassen wollen geben sie 'anzeigen' ein.");
+				eingabe = input.nextLine();
+				if (eingabe.equals("anzeigen")) {
+					mediothek.getMedien();
+					System.out.println("Welches möchten Sie ausleihen? (Eingabe: 'titel')");
+					eingabe = input.nextLine();
+					Object medium = mediothek.getMediumDa(eingabe);
+					mediothek.addMediumWeg((Medien) medium);
+					Mailbox mail = new Mailbox(kunde);
+					mail.addAusgeliehen((Medien) medium);
+					
+				}
+				else {
+					System.out.println("Welches möchten Sie ausleihen? (Eingabe: 'titel')");
+					eingabe = input.nextLine();
+					Object medium = mediothek.getMediumDa(eingabe);
+					mediothek.addMediumWeg((Medien) medium);
+					Mailbox mail = new Mailbox(kunde);
+					mail.addAusgeliehen((Medien) medium);
+					
+				}
 				
 			}
 			if (eingabe.equals("schmöckern")) {
+				mediothek.getMedien();
+				System.out.println("Welches möchten Sie ausleihen? (Eingabe: 'titel')");
+				eingabe = input.nextLine();
+				Object medium = mediothek.getMediumDa(eingabe);
+				mediothek.addMediumWeg((Medien) medium);
+				Mailbox mail = new Mailbox(kunde);
+				mail.addAusgeliehen((Medien) medium);
 				
 			}
 			else {
@@ -43,8 +117,6 @@ public class Starter {
 		}
 		if (eingabe.equals("rückgabe")) {
 			// keine ahnung isch gloubs e seich hie (wäge der new Mailbox)
-			Mediothek mediothek = new Mediothek();
-			Kunde kunde = mediothek.getKunde(name);
 			Mailbox mail = new Mailbox(kunde);
 			System.out.println("Welches Medium möchten Sie zurückgeben? (Eingabe: 'Titel'");
 			eingabe = input.nextLine();
@@ -65,8 +137,6 @@ public class Starter {
 			eingabe = input.nextLine();
 			if (eingabe.equals("mahnungen")) {
 				// instanzierungen machen mir sorgen.. 
-				Mediothek mediothek = new Mediothek();
-				Kunde kunde = mediothek.getKunde(name);
 				Mailbox mail = new Mailbox(kunde);
 				System.out.println(mail.getMahnungen());
 				System.out.println("Möchten Sie eine Mahnung begleichen (Eingabe: Y/N)");
@@ -85,8 +155,6 @@ public class Starter {
 			}
 			if (eingabe.equals("rechnungen")) {
 				// instanzierungen machen mir sorgen.. 
-				Mediothek mediothek = new Mediothek();
-				Kunde kunde = mediothek.getKunde(name);
 				Mailbox mail = new Mailbox(kunde);
 				System.out.println(mail.getRechnungen());
 				System.out.println("Möchten Sie eine Rechnung begleichen (Eingabe: Y/N)");
@@ -105,8 +173,6 @@ public class Starter {
 			}
 			if (eingabe.equals("ausgeliehen")) {
 				// instanzierungen machen mir sorgen.. 
-				Mediothek mediothek = new Mediothek();
-				Kunde kunde = mediothek.getKunde(name);
 				Mailbox mail = new Mailbox(kunde);
 				System.out.println(mail.getAusgeliehen());
 				System.out.println("Möchten Sie eine Medium zurückgeben? (Eingabe: 'rückgabe')");
@@ -140,6 +206,7 @@ public class Starter {
 		}
 		
 	}
+	// der kunde hat sich noch nie registriert : 
 	else {
 		System.out.println("Geben Sie Ihren Namen an");
 		String name = input.nextLine();
@@ -161,20 +228,14 @@ public class Starter {
 			// siehe in kunde nach.. 
 			// der Mitgliedschaft muss jetzt auch ein Parameter "Kunde" mitgegeben werden.. 
 			// damit die Mitgliedschaft immer auf einen Kunden lautet (vielleicht ein seich)
-			Kunde kunde = m.getKunde(name);
-			Mitgliedschaft mitglied = new Mitgliedschaft(kunde);
-			kunde.erstelleMitgliedschaft(kunde); // keine ahnung..
+			Kunde kunde1 = m.getKunde(name);
+			Mitgliedschaft mitglied = new Mitgliedschaft(kunde1);
+			kunde1.erstelleMitgliedschaft(kunde1); // keine ahnung..
 			mitglied.renewMitgliedschaft();		// keine ahnung..
 			
+			}
 		}
-		else {
-			// keine mitgliedschaft 
-		
-		}
-		}
-	}
-	
-		
-	}
+	}		
+}
 	
 

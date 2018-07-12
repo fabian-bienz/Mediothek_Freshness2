@@ -16,6 +16,10 @@ public class Mediothek {
 		medienDa = new HashMap<Integer, String>();
 	}
 	
+	public void addKunde(Kunde kunde) {
+		kunden.add(kunde);
+	}
+	
 	public void addMediumDa(Medien medium) {
 		medienDa.put(medium.getId(),medium.getTitel());
 	}
@@ -41,7 +45,7 @@ public class Mediothek {
 		// id vergeben 
 		int id = kunden.size() +1;
 		// kunde adden 
-		Kunde kunde = new Kunde(name, id);
+		Kunde kunde = new Kunde(name);
 		kunden.add(kunde);
 	}
 

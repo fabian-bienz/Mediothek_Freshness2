@@ -10,7 +10,7 @@ public class Kunde {
 	public Mitgliedschaft mitgliedschaft = null;
 	
 	
-	public Kunde(String name, int id) {
+	public Kunde(String name) {
 		this.name = name;
 		this.id = id;
 		
@@ -21,10 +21,6 @@ public class Kunde {
 		Mitgliedschaft mitgliedschaft = new Mitgliedschaft(vonWem);
 		mitgliedschaft.renewMitgliedschaft();
 		return mitgliedschaft.getEndDatum();
-		// hier will ich die default NULL mitgliedscheft  nicht mehr null setztn..
-		// geht das so??
-		this.mitgliedschaft = mitgliedschaft;
-		istMitglied = true;
 	}
 	public String getName() {
 		return name;
