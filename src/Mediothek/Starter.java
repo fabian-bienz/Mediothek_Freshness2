@@ -73,9 +73,7 @@ public class Starter {
 					Mailbox mail = new Mailbox(kunde);
 					mail.addAusgeliehen((Medien) medium);
 					
-				}
-				
-				
+				}			
 			}
 			if (eingabe.equals("cd")) {
 				System.out.println("Geben sie den Titel ein. Wenn sie alle verfügbaren Bücher anzeigen lassen wollen geben sie 'anzeigen' ein.");
@@ -124,10 +122,7 @@ public class Starter {
 			mail.rückgabe((Medien) medium);
 			// noch aus dem medienWeg removen und in das medienDa adden
 			mediothek.addMediumDa((Medien) medium);
-			mediothek.removeMediumWeg((Medien) medium);
-			
-			
-			
+			mediothek.removeMediumWeg((Medien) medium);	
 			
 		}
 		if (eingabe.equals("mailbox")) {
@@ -168,8 +163,7 @@ public class Starter {
 						mail.bezahleRechnung(mail.returnRechnung(eingabe));
 					}
 				}
-					
-				
+							
 			}
 			if (eingabe.equals("ausgeliehen")) {
 				// instanzierungen machen mir sorgen.. 
@@ -234,6 +228,10 @@ public class Starter {
 			mitglied.renewMitgliedschaft();		// keine ahnung..
 			
 			}
+		else {
+			System.out.println("Sie müssen später wiederkommen, um etwas auszuleihen.");
+			System.out.println("Ihre Registrierung wird verarbeitet.. haha");
+		}
 		}
 	}		
 }
